@@ -1,3 +1,12 @@
 *{
     font-family: "Poppins", sans-serif;
 }
+
+.menuList li:hover {
+    color: #4f39f6;
+    background-color: none;
+    cursor: pointer;
+}
+.menuList li:active{
+    color: #4f39f6;
+}
