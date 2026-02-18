@@ -27,7 +27,7 @@
 
 <body>
     <!-- Header -->
-    <div>
+    <header>
         <!-- Navbar -->
         <div class="lg:max-w-6xl mx-auto navbar bg-base-100">
             <div class="navbar-start">
@@ -70,21 +70,68 @@
         </div>
 
         <!-- Hero Banner Section -->
-        <div class="hero min-h-[90vh]"
-            style="background-image: url(./Assets/banner-image.png);">
+        <div class="hero min-h-[90vh]" style="background-image: url(./Assets/banner-image.png);">
             <div class="hero-overlay"></div>
             <div class="text-neutral-content lg:w-9/12 lg:pl-6 pl-4 pr-2">
                 <div class="text-left max-w-xl">
                     <h1 class="mb-5 text-3xl lg:text-5xl font-bold">Best Collection For You</h1>
                     <p class="mb-5">
-                       Discover the latest trends in fashion, electronics, and more. Shop with confidence and style at SwiftCare.
+                        Discover the latest trends in fashion, electronics, and more. Shop with confidence and style at
+                        SwiftCare.
                     </p>
                     <button class="btn btn-primary primary-btn-color border-0">Shop Now</button>
                 </div>
             </div>
-            
+
         </div>
-    </div>
+    </header>
+
+    <main>
+        <!-- Why choose us section -->
+        <div class="bg-[#f9fafb] py-10">
+            <div class="text-center max-w-6xl mx-auto">
+            <h3 class="text-2xl font-bold"> Why Choose Us</h3>
+            <p class="pt-2 text-gray-600">We provide the best shopping experience with top-notch services.</p>
+        </div>
+        <!-- card -->
+        <div class="max-w-6xl mx-auto my-10 grid grid-cols-4 gap-20">
+            <!-- Card 1 -->
+            <div class="card w-72 bg-base-100 card-md shadow-sm rounded-6 ">
+                <div class="card-body space-y-3">
+                    <i class="fa-solid fa-truck-moving text-3xl text-[#4f39f6]"></i>
+                    <h2 class="card-title">Large Card</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card w-72 bg-base-100 card-md shadow-sm rounded-6 ">
+                <div class="card-body space-y-3">
+                    <i class="fa-regular fa-headphones text-3xl text-[#4f39f6]"></i>
+                    <h2 class="card-title">24/7 Support</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card w-72 bg-base-100 card-md shadow-sm rounded-6 ">
+                <div class="card-body space-y-3">
+                    <i class="fa-regular fa-shield text-3xl text-[#4f39f6]"></i>
+                    <h2 class="card-title">Secure Payment</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card w-72 bg-base-100 card-md shadow-sm rounded-6 ">
+                <div class="card-body space-y-3">
+                  <i class="fa-solid fa-rotate text-3xl text-[#4f39f6]"></i>
+                    <h2 class="card-title">Early Returns</h2>
+                    <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+
     <script src="./js/index.js"></script>
 </body>
 

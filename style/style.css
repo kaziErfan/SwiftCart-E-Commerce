@@ -5,6 +5,9 @@
 .primary-btn-color{
     background-color: #4f39f6;
 }
+.primary-text-color{
+    color: #4f39f6;
+}
 
 .menuList li:hover {
     color: #4f39f6;
