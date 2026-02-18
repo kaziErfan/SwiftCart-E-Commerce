@@ -2,6 +2,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+.primary-btn-color{
+    background-color: #4f39f6;
+}
+
 .menuList li:hover {
     color: #4f39f6;
     background-color: none;
