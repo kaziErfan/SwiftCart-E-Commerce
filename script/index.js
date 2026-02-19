@@ -4,8 +4,9 @@ const loadAllProduct = () => {
     .then((data) => displayTrending(data));
 };
 
+
+// Displaying Trending Card
 const displayTrending = (products) => {
-  console.log(products);
   const trendingProduct = document.getElementById("trending-product");
   trendingProduct.innerHTML = "";
 // //   "id": 10,
@@ -18,9 +19,11 @@ const displayTrending = (products) => {
 // // "rate": 2.9,
 // "count": 470
 
-  for (product of products) {
-    const productDiv = document.createElement("div");
-    productDiv.innerHTML = `
+products.forEach((product) => {
+    if(product.price >= 550){
+        console.log(product.title);
+         const productDiv = document.createElement("div");
+         productDiv.innerHTML = `
         <div class="card bg-base-100 lg:w-96 w-11/12 mx-auto shadow-sm border-1 border-gray-200">
                     <figure class="bg-gray-300">
                         <img class="h-80 w-auto py-3" src="${product.image}"
@@ -38,15 +41,15 @@ const displayTrending = (products) => {
                         <p class="text-lg lg:text-xl font-bold">$${product.price}</p>
                     
                         <div class="card-actions flex justify-center">
-                            <a href="#" class="badge badge-outline lg:px-10 px-4 py-4"><i class="fa-regular fa-eye"></i>Details</a>
-                            <a href="" class="badge badge-primary lg:px-12 px-8 py-4"><i class="fa-solid fa-cart-shopping"></i>Add</a>
+                            <button class="badge badge-outline lg:px-10 px-4 py-4"><i class="fa-regular fa-eye"></i>Details</button>
+                            <button href="" class="badge badge-primary lg:px-12 px-8 py-4"><i class="fa-solid fa-cart-shopping"></i>Add</button>
                         </div>
                     </div>
                 </div>
         `;
-
-    trendingProduct.append(productDiv);
-  }
+         trendingProduct.append(productDiv);
+    };
+});
 };
 
 loadAllProduct();
