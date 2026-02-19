@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftCart</title>
+    <title>Product</title>
     <!-- Stylesheet link -->
     <link rel="stylesheet" href="./style/style.css">
 
@@ -27,7 +27,7 @@
 
 <body>
     <!-- Header -->
-    <header>
+    <header class="shadow">
         <!-- Navbar -->
         <div class="lg:max-w-6xl mx-auto navbar bg-base-100">
             <div class="navbar-start">
@@ -68,83 +68,19 @@
                 </div>
             </div>
         </div>
-
-        <!-- Hero Banner Section -->
-        <div class="hero min-h-[90vh]" style="background-image: url(./Assets/banner-image.png);">
-            <div class="hero-overlay"></div>
-            <div class="text-neutral-content lg:w-9/12 lg:pl-6 lg:pl-0 pl-4 pr-2">
-                <div class="text-left max-w-xl">
-                    <h1 class="mb-5 text-3xl lg:text-5xl font-bold">Best Collection For You</h1>
-                    <p class="mb-5">
-                        Discover the latest trends in fashion, electronics, and more. Shop with confidence and style at
-                        SwiftCare.
-                    </p>
-                    <button class="btn btn-primary primary-btn-color border-0">Shop Now</button>
-                </div>
-            </div>
-
-        </div>
     </header>
 
-    <main>
-        <!-- Why choose us section -->
-        <div class="bg-[#f9fafb] lg:py-6 py-5">
-            <div class="text-center max-w-6xl mx-auto">
-                <h3 class="text-2xl font-bold"> Why Choose Us</h3>
-                <p class="pt-2 text-gray-600">We provide the best shopping experience with top-notch services.</p>
-            </div>
-            <!-- card -->
-            <div class="max-w-6xl mx-auto my-10 grid lg:grid-cols-4 lg:gap-20 gap-6">
-                <!-- Card 1 -->
-                <div class="card lg:w-72 w-10/12 mx-auto bg-base-100 card-md shadow-sm rounded-6 ">
-                    <div class="card-body space-y-3">
-                        <i class="fa-solid fa-truck-moving text-3xl text-[#4f39f6]"></i>
-                        <h2 class="card-title">Large Card</h2>
-                        <p>A card component has a figure, a body part, and inside body there are title and actions parts
-                        </p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="card lg:w-72 w-10/12 mx-auto bg-base-100 card-md shadow-sm rounded-6 ">
-                    <div class="card-body space-y-3">
-                        <i class="fa-regular fa-headphones text-3xl text-[#4f39f6]"></i>
-                        <h2 class="card-title">24/7 Support</h2>
-                        <p>A card component has a figure, a body part, and inside body there are title and actions parts
-                        </p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="card lg:w-72 w-10/12 mx-auto bg-base-100 card-md shadow-sm rounded-6 ">
-                    <div class="card-body space-y-3">
-                        <i class="fa-regular fa-shield text-3xl text-[#4f39f6]"></i>
-                        <h2 class="card-title">Secure Payment</h2>
-                        <p>A card component has a figure, a body part, and inside body there are title and actions parts
-                        </p>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="card lg:w-72 w-10/12 mx-auto bg-base-100 card-md shadow-sm rounded-6 ">
-                    <div class="card-body space-y-3">
-                        <i class="fa-solid fa-rotate text-3xl text-[#4f39f6]"></i>
-                        <h2 class="card-title">Early Returns</h2>
-                        <p>A card component has a figure, a body part, and inside body there are title and actions parts
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <!-- Main -->
+    <!-- Trending Product -->
+    <div class="lg:max-w-6xl mx-auto my-6">
+        <div class="py-4">
+            <h3 class="text-2xl font-bold pl-7 lg:pl-0 text-center">Our Products</h3>
         </div>
+        <!-- Product card -->
+        <div id="" class="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-20 lg:gap-y-10 gap-8">
 
-        <!-- Trending Product -->
-        <div class="lg:max-w-6xl mx-auto my-6">
-            <div class="py-4">
-                <h3 class="text-2xl font-bold pl-7 lg:pl-0">Trending Now</h3>
-            </div>
-            <!-- Product card -->
-            <div id="trending-product" class="grid grid-cols-1 lg:grid-cols-3 lg:gap-x-20 lg:gap-y-10 gap-8">
-
-            </div>
         </div>
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer class=" bg-[#1e2939] py-10 mt-16">
@@ -175,14 +111,16 @@
                     <label class="text-white">The latest news, articles, and resources,
                         sent to your inbox weekly.</label>
                     <div class="lg:flex gap-3 mt-3 space-y-3 lg:space-y-0">
-                        <input type="text" placeholder="Enter your email" class="input input-bordered join-item w-full lg:w-auto" />
+                        <input type="text" placeholder="Enter your email"
+                            class="input input-bordered join-item w-full lg:w-auto" />
                         <button class="btn btn-primary join-item w-full lg:w-auto">Subscribe</button>
                     </div>
                 </fieldset>
             </form>
         </div>
 
-        <div class="max-w-6xl flex flex-col-reverse lg:flex-row lg:justify-between mx-auto sm:footer-horizontal lg:items-center text-gray-400 border-t-1 border-gray-600 mt-4 pt-6 pl-4 lg:pl-0">
+        <div
+            class="max-w-6xl flex flex-col-reverse lg:flex-row lg:justify-between mx-auto sm:footer-horizontal lg:items-center text-gray-400 border-t-1 border-gray-600 mt-4 pt-6 pl-4 lg:pl-0">
             <div>
                 <p>© 2026 SwiftCart, Inc. All right reserved</p>
             </div>
@@ -195,9 +133,6 @@
             </nav>
         </div>
     </footer>
-
-
-    <script src="./script/index.js"></script>
 </body>
 
 </html>

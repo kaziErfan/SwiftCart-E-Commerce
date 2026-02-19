@@ -17,7 +17,7 @@ products.forEach((product) => {
          productDiv.innerHTML = `
         <div class="card bg-base-100 lg:w-96 w-11/12 mx-auto shadow-sm border-1 border-gray-200">
                     <figure class="bg-gray-300">
-                        <img class="h-80 w-auto py-3" src="${product.image}"
+                        <img class="h-80 w-auto p-5" src="${product.image}"
                             alt="" />
                     </figure>
                     <div class="card-body space-y-1">
