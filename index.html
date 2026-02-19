@@ -149,38 +149,51 @@
     <!-- Footer -->
 
     <footer class=" bg-[#1e2939] py-10 mt-16">
-        <div class="footer sm:footer-horizontal max-w-6xl mx-auto flex justify-between">
-            <nav class="w-72">
+        <div class="footer sm:footer-horizontal lg:max-w-6xl mx-auto pl-4 pr-2 lg:flex justify-between">
+            <nav class="lg:w-72">
                 <a href="" class="text-2xl text-[#7c86fe] tracking-wider font-bold">SwiftCart</a>
-                <p class="text-white">Your one-stop shop for all your fashion
+                <p class="text-white w-11/12 lg:w-auto">Your one-stop shop for all your fashion
                     and lifestyle needs. Quality products, fast
                     delivery, and excellent support.</p>
             </nav>
 
             <nav class="text-white">
-                <h6 class="footer-title">Quick Links</h6>
+                <h6 class="footer-title font-normal tracking-wider">Quick Links</h6>
                 <a class="link link-hover">Home</a>
                 <a class="link link-hover">Products</a>
                 <a class="link link-hover">About</a>
                 <a class="link link-hover">Contact</a>
             </nav>
             <nav class="text-white">
-                <h6 class="footer-title">Support</h6>
-                <a class="link link-hover">Terms of use</a>
-                <a class="link link-hover">Privacy policy</a>
-                <a class="link link-hover">Cookie policy</a>
+                <h6 class="footer-title font-normal tracking-wider">Support</h6>
+                <a class="link link-hover">FAQ</a>
+                <a class="link link-hover"> Returns</a>
+                <a class="link link-hover">Privacy Policy</a>
             </nav>
             <form>
                 <h6 class="footer-title text-white">SUBSCRIBE TO OUR NEWSLETTER</h6>
-                <fieldset class="w-72">
+                <fieldset class="lg:w-72 pr-4">
                     <label class="text-white">The latest news, articles, and resources,
                         sent to your inbox weekly.</label>
-                    <div class="flex gap-3 mt-3">
-                        <input type="text" placeholder="Enter your email" class="input input-bordered join-item" />
-                        <button class="btn btn-primary join-item">Subscribe</button>
+                    <div class="lg:flex gap-3 mt-3 space-y-3 lg:space-y-0">
+                        <input type="text" placeholder="Enter your email" class="input input-bordered join-item w-full lg:w-auto" />
+                        <button class="btn btn-primary join-item w-full lg:w-auto">Subscribe</button>
                     </div>
                 </fieldset>
             </form>
+        </div>
+
+        <div class="max-w-6xl flex flex-col-reverse lg:flex-row lg:justify-between mx-auto sm:footer-horizontal lg:items-center text-gray-400 border-t-1 border-gray-600 mt-4 pt-6 pl-4 lg:pl-0">
+            <div>
+                <p>© 2026 SwiftCart, Inc. All right reserved</p>
+            </div>
+            <nav class="text-lg space-x-2">
+                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href=""><i class="fa-regular fa-envelope"></i></a>
+            </nav>
         </div>
     </footer>
 
