@@ -4,17 +4,41 @@ const loadAllProduct = () => {
     .then((data) => displayTrending(data));
 };
 
+const loadAllCategories = () => {
+  fetch("https://fakestoreapi.com/products/categories")
+    .then((res) => res.json())
+    .then((data) => displayCategories(data));
+};
+
+const loadProductByCategory = () => {
+    const url = "https://fakestoreapi.com/products/category/${category}";
+    fetch ("")
+}
+// Display Product Categories
+const displayCategories = (categories) => {
+  const productCategories = document.getElementById("product-categories");
+
+  for (category of categories) {
+    console.log(category);
+    const categoryDiv = document.createElement("div");
+    categoryDiv.innerHTML = `
+         <button onclick= "loadProductByCategory(${category})" class="btn hover:bg-[#4f39f6] text-lg font-normal active:bg-[#4f39f6] hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">${category}</button>
+        `;
+        productCategories.append(categoryDiv);
+  }
+};
 
 // Displaying Trending Card
 const displayTrending = (products) => {
+  // Trending Product
   const trendingProduct = document.getElementById("trending-product");
   trendingProduct.innerHTML = "";
 
-// Trending Product Loop
-products.forEach((product) => {
-    if(product.price >= 550){
-         const productDiv = document.createElement("div");
-         productDiv.innerHTML = `
+  // Trending Product Loop
+  products.forEach((product) => {
+    if (product.price >= 550) {
+      const productDiv = document.createElement("div");
+      productDiv.innerHTML = `
         <div class="card bg-base-100 lg:w-96 w-11/12 mx-auto shadow-sm border-1 border-gray-200">
                     <figure class="bg-gray-300">
                         <img class="h-80 w-auto p-5" src="${product.image}"
@@ -38,9 +62,12 @@ products.forEach((product) => {
                     </div>
                 </div>
         `;
-         trendingProduct.append(productDiv);
-    };
-});
+      trendingProduct.append(productDiv);
+    }
+  });
 };
 
+// Product Page section
+
 loadAllProduct();
+loadAllCategories();
