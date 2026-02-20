@@ -1,31 +1,7 @@
 const loadAllProduct = () => {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
-    .then((data) => displayTrending(data));
-};
-
-const loadAllCategories = () => {
-  fetch("https://fakestoreapi.com/products/categories")
-    .then((res) => res.json())
-    .then((data) => displayCategories(data));
-};
-
-const loadProductByCategory = () => {
-    const url = "https://fakestoreapi.com/products/category/${category}";
-    fetch ("")
-}
-// Display Product Categories
-const displayCategories = (categories) => {
-  const productCategories = document.getElementById("product-categories");
-
-  for (category of categories) {
-    console.log(category);
-    const categoryDiv = document.createElement("div");
-    categoryDiv.innerHTML = `
-         <button onclick= "loadProductByCategory(${category})" class="btn hover:bg-[#4f39f6] text-lg font-normal active:bg-[#4f39f6] hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">${category}</button>
-        `;
-        productCategories.append(categoryDiv);
-  }
+    .then((data) => displayTrending(data))
 };
 
 // Displaying Trending Card
@@ -67,7 +43,5 @@ const displayTrending = (products) => {
   });
 };
 
-// Product Page section
-
 loadAllProduct();
-loadAllCategories();
+
