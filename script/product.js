@@ -93,19 +93,6 @@ const displayCategories = (categories) => {
   `;
     productCategories.append(categoryDiv);
   });
-
-  //   categories.forEach((category) => {
-  //     const btn = document.createElement("button");
-  //     btn.innerText = category;
-  //     btn.className = `btn hover:bg-[#4f39f6] id = "active-btn-${category}" lg:text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white`;
-  //     btn.onclick = () => {
-  //       loadProductByCategory(category);
-  //     };
-
-  //     const categoryDiv = document.createElement("div");
-  //     categoryDiv.appendChild(btn);
-  //     productCategories.append(categoryDiv);
-  //   });
 };
 
 // Display Category Products
