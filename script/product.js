@@ -15,7 +15,11 @@ const loadProductByCategory = (categoryName) => {
   const url = `https://fakestoreapi.com/products/category/${categoryName}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayProducts(data));
+    .then((data) => {
+      const clickBtn = document.getElementById(`active-btn-${categoryName}`);
+      console.log(clickBtn);
+      displayProducts(data);
+    });
 };
 
 // Display All products
@@ -55,28 +59,39 @@ const displayProducts = (products) => {
 
 // Display Product Categories
 const displayCategories = (categories) => {
+  console.log(categories);
   const productCategories = document.getElementById("product-categories");
   productCategories.innerHTML = "";
 
   // All
   const allCategoryDiv = document.createElement("div");
-  allCategoryDiv.innerHTML = `<button onclick= 'allProduct()' class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">All</button>`;
+  allCategoryDiv.innerHTML = `<button onclick = 'allProduct()' id = "active-btn-all" class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">All</button>`;
 
-    productCategories.append(allCategoryDiv);
+  productCategories.append(allCategoryDiv);
 
-    // Category button
-categories.forEach((category) => {
-  const btn = document.createElement("button");
-  btn.innerText = category;
-  btn.className = "btn hover:bg-[#4f39f6] lg:text-lg font-normal active:bg-[#4f39f6] hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white";
-  btn.onclick = () => {
-    loadProductByCategory(category);
-  };
-  
-  const categoryDiv = document.createElement("div");
-  categoryDiv.appendChild(btn);
-  productCategories.append(categoryDiv);
-});
+  // Category button
+  categories.forEach((category) => {
+    const categoryDiv = document.createElement("div");
+    categoryDiv.innerHTML = `
+     <button onclick="loadProductByCategory(\`${category}\`)" class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">
+        ${category}
+     </button>
+  `;
+    productCategories.append(categoryDiv);
+  });
+
+  //   categories.forEach((category) => {
+  //     const btn = document.createElement("button");
+  //     btn.innerText = category;
+  //     btn.className = `btn hover:bg-[#4f39f6] id = "active-btn-${category}" lg:text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white`;
+  //     btn.onclick = () => {
+  //       loadProductByCategory(category);
+  //     };
+
+  //     const categoryDiv = document.createElement("div");
+  //     categoryDiv.appendChild(btn);
+  //     productCategories.append(categoryDiv);
+  //   });
 };
 
 // Display Category Products
