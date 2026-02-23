@@ -5,10 +5,15 @@ const loadAllCategories = () => {
 };
 
 // All Categories
-const allProduct = () => {
+const allProduct = (all) => {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
-    .then((data) => displayProducts(data));
+    .then((data) => {
+        removeActive();
+        const clickBtn = document.getElementById(`active-btn-all`);
+        clickBtn.classList.add("active");
+        displayProducts(data);
+    });
 };
 
 const loadProductByCategory = (categoryName) => {
@@ -16,10 +21,20 @@ const loadProductByCategory = (categoryName) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
+    removeActive();
       const clickBtn = document.getElementById(`active-btn-${categoryName}`);
-      console.log(clickBtn);
+      clickBtn.classList.add("active");
       displayProducts(data);
     });
+};
+
+// Removing active button
+const removeActive = () => {
+    const activeButton = document.querySelectorAll(".remove-active");
+    
+    activeButton.forEach(btn => {
+        btn.classList.remove("active");
+    })
 };
 
 // Display All products
@@ -59,13 +74,12 @@ const displayProducts = (products) => {
 
 // Display Product Categories
 const displayCategories = (categories) => {
-  console.log(categories);
   const productCategories = document.getElementById("product-categories");
   productCategories.innerHTML = "";
 
   // All
   const allCategoryDiv = document.createElement("div");
-  allCategoryDiv.innerHTML = `<button onclick = 'allProduct()' id = "active-btn-all" class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">All</button>`;
+  allCategoryDiv.innerHTML = `<button onclick = 'allProduct()' id = "active-btn-all" class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white remove-active">All</button>`;
 
   productCategories.append(allCategoryDiv);
 
@@ -73,7 +87,7 @@ const displayCategories = (categories) => {
   categories.forEach((category) => {
     const categoryDiv = document.createElement("div");
     categoryDiv.innerHTML = `
-     <button onclick="loadProductByCategory(\`${category}\`)" class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">
+     <button id="active-btn-${category}" onclick="loadProductByCategory(\`${category}\`)" class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white remove-active">
         ${category}
      </button>
   `;

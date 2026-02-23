@@ -17,3 +17,7 @@
 .menuList li:active{
     color: #4f39f6;
 }
+.active{
+    background-color: #4f39f6;
+    color: white;
+}
