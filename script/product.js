@@ -5,7 +5,7 @@ const loadAllCategories = () => {
 };
 
 // All Categories
-const allProduct = (all) => {
+const allProduct = () => {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((data) => {
@@ -33,8 +33,10 @@ const removeActive = () => {
     const activeButton = document.querySelectorAll(".remove-active");
     
     activeButton.forEach(btn => {
-        btn.classList.remove("active");
-    })
+        if(btn.classList.contains("active")){
+            btn.classList.remove("active");
+        };
+    });
 };
 
 // Display All products
@@ -132,3 +134,4 @@ const categoryProduct = (products) => {
 };
 
 loadAllCategories();
+allProduct();
