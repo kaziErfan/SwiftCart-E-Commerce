@@ -11,12 +11,11 @@ const allProduct = () => {
     .then((data) => displayProducts(data));
 };
 
-
 const loadProductByCategory = (categoryName) => {
   const url = `https://fakestoreapi.com/products/category/${categoryName}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => categoryProduct(data));
+    .then((data) => displayProducts(data));
 };
 
 // Display All products
@@ -57,31 +56,35 @@ const displayProducts = (products) => {
 // Display Product Categories
 const displayCategories = (categories) => {
   const productCategories = document.getElementById("product-categories");
-//   productCategories.innerHTML = "";
+  productCategories.innerHTML = "";
 
+  // All
   const allCategoryDiv = document.createElement("div");
-  allCategoryDiv.innerHTML = `<button onclick= "loadProductByCategory('all')" class="btn hover:bg-[#4f39f6] text-lg font-normal active:bg-[#4f39f6] hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">All</button>`
+  allCategoryDiv.innerHTML = `<button onclick= 'allProduct()' class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">All</button>`;
 
-  productCategories.append(allCategoryDiv);
+    productCategories.append(allCategoryDiv);
 
-  categories.forEach(category => {
-    console.log(category);
-    const categoryDiv = document.createElement("div");
-    categoryDiv.innerHTML = `
-         <button onclick= "loadProductByCategory('${category}')" class="btn hover:bg-[#4f39f6] text-lg font-normal active:bg-[#4f39f6] hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white">${category}</button>
-        `;
-    productCategories.append(categoryDiv);
-  });
-   
+    // Category button
+categories.forEach((category) => {
+  const btn = document.createElement("button");
+  btn.innerText = category;
+  btn.className = "btn hover:bg-[#4f39f6] lg:text-lg font-normal active:bg-[#4f39f6] hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white";
+  btn.onclick = () => {
+    loadProductByCategory(category);
+  };
+  
+  const categoryDiv = document.createElement("div");
+  categoryDiv.appendChild(btn);
+  productCategories.append(categoryDiv);
+});
 };
 
 // Display Category Products
 const categoryProduct = (products) => {
   const displayCategoryProduct = document.getElementById("our-product");
-//   displayCategoryProduct.innerHTML = "";
-console.log(products);
 
-  for (product in products) {
+  for (product of products) {
+    console.log(product);
     const productCard = document.createElement("div");
     productCard.innerHTML = `
         <div class="card bg-base-100 lg:w-72 w-11/12 mx-auto shadow-sm border-1 border-gray-200">
@@ -92,8 +95,8 @@ console.log(products);
                     <div class="card-body space-y-1">
                         <div class="cardCategory flex justify-between">
                             <a href="" class="bg-blue-200 px-3 py-1 text-xs font-bold rounded-3xl">${product.category}</a>
-                            <a href="" class=""><i class="fa-solid fa-star text-yellow-400"></i><span class="productRating">${product.rating.rate}</span>
-                            <span class="ratingCount">(${product.rating.count})</span></a>
+                            <i class="fa-solid fa-star text-yellow-400"></i> <span class="productRating">${product.rating.rate}</span>
+                            <span class="ratingCount">(${product.rating.count})</span>
                         </div>
 
                         <h2 class="card-title font-semibold text-base block truncate">
@@ -112,7 +115,4 @@ console.log(products);
   }
 };
 
-
-
 loadAllCategories();
-
