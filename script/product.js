@@ -9,10 +9,10 @@ const allProduct = () => {
   fetch("https://fakestoreapi.com/products")
     .then((res) => res.json())
     .then((data) => {
-        removeActive();
-        const clickBtn = document.getElementById(`active-btn-all`);
-        clickBtn.classList.add("active");
-        displayProducts(data);
+      removeActive();
+      const clickBtn = document.getElementById(`active-btn-all`);
+      clickBtn.classList.add("active");
+      displayProducts(data);
     });
 };
 
@@ -21,32 +21,53 @@ const loadProductByCategory = (categoryName) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-    removeActive();
+      removeActive();
       const clickBtn = document.getElementById(`active-btn-${categoryName}`);
       clickBtn.classList.add("active");
       displayProducts(data);
     });
 };
-const loadProductDetails = async (id) =>{
-    const url = `https://fakestoreapi.com/products/${id}`;
-    const res = await fetch(url);
-    const details = await res.json();
-    console.log(details)
+const loadProductDetails = async (id) => {
+  const url = `https://fakestoreapi.com/products/${id}`;
+  const res = await fetch(url);
+  const details = await res.json();
+  displayProductModal(details);
 };
 
-const displayProductModal = (details) => {
-
+const displayProductModal = (product) => {
+  const detailBox = document.getElementById("details-container");
+  detailBox.innerHTML = `
+    <div>
+        <form method="dialog" class="py-3">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-xl">✕</button>
+            </form>
+            <h3 class="font-bold">${product.title}</h3>
+            <p class="py-4">${product.description}</p>
+            <div class="cardCategory flex justify-between py-3">
+                <p class="text-lg lg:text-xl font-bold">$109</p>
+                <div>
+                    <span><i class="fa-solid fa-star text-yellow-400"></i></span><span class="productRating">${product.rating.rate}</span>
+                    <span class="ratingCount">${product.rating.count}</span></a>
+                </div>
+            </div>
+            <div class="card-actions flex justify-between">
+                <button class="btn btn-outline lg:px-4 px-4 py-4 hover:bg-[#3b25c1] hover:text-white"><i class="fa-regular fa-eye"></i>Buy Now</button>
+                <button href="" class="btn btn-primary lg:px-6 px-8 py-4 bg-[#3b25c1] hover:bg-[#3521b4]"><i
+                        class="fa-solid fa-cart-shopping"></i>Add</button>
+            </div>
+           </div>`;
+  document.getElementById("details_modal").showModal();
 };
 
 // Removing active button
 const removeActive = () => {
-    const activeButton = document.querySelectorAll(".remove-active");
-    
-    activeButton.forEach(btn => {
-        if(btn.classList.contains("active")){
-            btn.classList.remove("active");
-        };
-    });
+  const activeButton = document.querySelectorAll(".remove-active");
+
+  activeButton.forEach((btn) => {
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active");
+    }
+  });
 };
 
 // Display All products
