@@ -27,6 +27,16 @@ const loadProductByCategory = (categoryName) => {
       displayProducts(data);
     });
 };
+const loadProductDetails = async (id) =>{
+    const url = `https://fakestoreapi.com/products/${id}`;
+    const res = await fetch(url);
+    const details = await res.json();
+    console.log(details)
+};
+
+const displayProductModal = (details) => {
+
+};
 
 // Removing active button
 const removeActive = () => {
@@ -64,8 +74,8 @@ const displayProducts = (products) => {
                         <p class="text-lg lg:text-xl font-bold">$${product.price}</p>
                     
                         <div class="card-actions flex justify-between">
-                            <button class="badge badge-outline lg:px-4 px-4 py-4"><i class="fa-regular fa-eye"></i>Details</button>
-                            <button href="" class="badge badge-primary lg:px-6 px-8 py-4"><i class="fa-solid fa-cart-shopping"></i>Add</button>
+                            <button onclick="loadProductDetails(${product.id})" class="btn btn-outline hover:bg-[#4f39f6] hover:text-white lg:px-4 px-4 py-4"><i class="fa-regular fa-eye"></i>Details</button>
+                            <button class="btn btn-primary lg:px-6 px-8 py-4 hover:bg-[#3521b4]"><i class="fa-solid fa-cart-shopping"></i>Add</button>
                         </div>
                     </div>
                 </div>
