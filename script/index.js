@@ -170,7 +170,7 @@ const displayCategories = (categories) => {
   categories.forEach((category) => {
     const categoryDiv = document.createElement("div");
     categoryDiv.innerHTML = `
-     <button id="active-btn-${category}" onclick="loadProductByCategory(\`${category}\`)" class="btn hover:bg-[#4f39f6] text-lg font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white remove-active">
+     <button id="active-btn-${category}" onclick="loadProductByCategory(\`${category}\`)" class="btn hover:bg-[#4f39f6] lg:text-lg text-sm font-normal hover:text-white delay-300 rounded-2xl border-1 border-gray-400 bg-white remove-active">
         ${category}
      </button>
   `;
